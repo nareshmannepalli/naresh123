@@ -1,0 +1,22 @@
+<?php
+$con=mysql_connect("localhost","root","");
+$db=mysql_select_db("zoom4webtech_studentcorner",$con);
+
+
+
+if(isset($_POST['submit'])){
+echo $insert='insert into map_table(Name_of_the_Faculty,Deportement,section,subject)
+
+values("'.$_POST['Nameof_the_Faculty'].'",
+"'.$_POST['Deportement'].'",
+"'.$_POST['section'].'",
+"'.$_POST['subject'].'")';
+if(mysql_query($insert)){
+echo "success"; 
+header("url=../dashboard.php");
+}
+else{
+ echo "not inserted ";	
+}
+}
+?>
